@@ -6,9 +6,9 @@ import numpy as np
 import gdown
 import os
 
-MODEL_URL = "https://drive.google.com/file/d/1c9rri9R44zQ7eEvC97hxvjsvfLXyn25z/view?usp=sharing"
+MODEL_URL = "https://drive.google.com/file/d/1FVlrEQdI8qCRZFPF3a4La5KHsrHF0E1v/view?usp=sharing"
 
-MODEL_PATH = "vqa_model.keras"
+MODEL_PATH = "vqa_model.h5"
 
 @st.cache_resource
 def load_model():
@@ -46,3 +46,4 @@ if uploaded and question:
     answer = "YES" if pred > 0.5 else "NO"
 
     st.write("Prediction:", answer)
+
