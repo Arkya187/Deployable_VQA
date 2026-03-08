@@ -17,7 +17,9 @@ def load_model():
         st.info("Downloading model... please wait")
         gdown.download(MODEL_URL, MODEL_PATH, quiet=False, fuzzy=True)
 
-    return tf.keras.models.load_model(MODEL_PATH)
+    st.write("Model downloaded, loading...")
+
+    return tf.keras.models.load_model(MODEL_PATH, compile=False)
 
 model = load_model()
 tokenizer = pickle.load(open("tokenizer.pkl","rb"))
@@ -46,6 +48,7 @@ if uploaded and question:
     answer = "YES" if pred > 0.5 else "NO"
 
     st.write("Prediction:", answer)
+
 
 
 
